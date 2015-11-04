@@ -25,6 +25,13 @@ executable minesweeper-powerpack
   hs-source-dirs:      src
   default-language:    Haskell2010
 
+library
+  exposed-modules:     Game
+  build-depends:       base >=4.8 && <4.9,
+                       vector >=0.10.12
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
 -- test-suite testsuite
 --   type:                exitcode-stdio-1.0
 --   main-is:             RunTests.hs
@@ -35,7 +42,9 @@ executable minesweeper-powerpack
 test-suite testsuite
   type:                detailed-0.9
   test-module:         RunTests
-  build-depends:       base >= 4.8 && <4.9,
-                       Cabal >= 1.22.4.0
+  build-depends:       base >=4.8 && <4.9,
+                       Cabal >=1.22.4.0,
+                       minesweeper-powerpack,
+                       cabal-test-quickcheck
   hs-source-dirs:      testsuite
   default-language:    Haskell2010
